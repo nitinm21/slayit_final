@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    color: #fff;
+    background-color: #121212;
+    overflow-x: hidden;
+    position: relative;
+}
+/* testing a commit*/
+
+.gradient-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        #0f2027,  /* Deep Teal */
+        #2c5364,  /* Dark Cyan */
+        #203a43,  /* Rich Blue-Green */
+        #355c7d,  /* Slate Blue */
+        #6c5b7b,  /* Muted Purple */
+        #c06c84,  /* Soft Pink */
+        #f67280,  /* Coral Pink */
+        #f8b195   /* Peach */
+    );
+    background-size: 800% 800%;
+    z-index: -1;
+    animation: gradientAnimation 40s ease infinite, pulseEffect 10s infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulseEffect {
+    0%, 100% {
+        filter: brightness(100%);
+    }
+    50% {
+        filter: brightness(120%);
+    }
+}
+
+header {
+    width: 100%;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff; /* Solid color for contrast */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: 'Roller Coaster', serif; /* Applying the new font */
+    align-items: center;
+}
+
+.hero {
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 80px);
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #7D6AFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0 auto; /* Centering the button */
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    background: #ff7eb3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.step {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.step h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.step h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ff7eb3;
+    transition: width 0.3s ease;
+}
+
+.step:hover h2::after {
+    width: 50px;
+}
+
+.step-image {
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.step-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.step:hover .step-image img {
+    transform: scale(1.05);
+}
+
+.gif-placeholder {
+    display: none;
+}
+
+.dark-mode-gradient {
+    background: linear-gradient(270deg, #ff7eb3, #6a82fb);
+}
+
+footer {
+    padding: 1rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    position: fixed; /* Fixing footer at the bottom */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    color: #fff;
+}
+
+@media (max-width: 1024px) {
+    .steps {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        padding: 0 1rem;
+    }
+    
+    .hero-content {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .steps {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .step {
+        margin: 0 auto;
+        max-width: 400px;
+        padding: 2rem;
+    }
+    
+    .btn {
+        padding: 1rem 1.75rem;
+        width: 100%; /* Make button full width on mobile */
+        max-width: 300px; /* Limit max width */
+    }
+    
+    header {
+        padding: 1rem;
+    }
+    
+    .logo {
+        font-size: 1.75rem;
+        align-items: center;
+    }
+    
+    .step-image {
+        aspect-ratio: 3/2;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+        padding: 0 1rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .btn {
+        width: 90%;
+        max-width: 300px;
+        padding: 1rem 1.5rem;
+    }
+    
+    .step {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+        align-items: center;
+    }
+    
+    .step-image {
+        aspect-ratio: 4/3;
+    }
+}
+
+/* Add touch-friendly styles for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .btn, .step {
+        transition: transform 0.2s ease;
+    }
+    
+    .btn:active, .step:active {
+        transform: scale(0.98);
+    }
+    
+    /* Increase touch target sizes */
+    nav a, .btn {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
