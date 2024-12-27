@@ -63,15 +63,16 @@ body {
 }
 
 header {
-    width: 100%;
-    padding: 1.5rem;
+    width: 90%; /* Set width to 90% of the viewport */
+    margin: 20px auto 0; /* Center the header with a top margin */
+    padding: 0.75rem;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    border-radius: 30px; /* Rounded corners */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: sticky;
     top: 0;
-    z-index: 1000;
 }
 
 nav {
@@ -83,16 +84,17 @@ nav {
 }
 
 .logo {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 3rem;
+    font-weight: regular;
     color: #fff; /* Solid color for contrast */
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    font-family: 'Roller Coaster', serif; /* Applying the new font */
+    font-family: 'Cookie', serif; /* Applying the new font */
     align-items: center;
 }
 
 .hero {
     padding: 2rem 1rem;
+    margin-top: 70px; /* Space below the fixed header */
     min-height: calc(100vh - 80px);
 }
 
@@ -216,6 +218,19 @@ h1 {
     background: linear-gradient(270deg, #ff7eb3, #6a82fb);
 }
 
+.tile {
+    border: 2px solid #3498db; /* Aesthetic blue border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Inner spacing */
+    margin: 10px; /* Outer spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: transform 0.3s; /* Smooth hover effect */
+}
+
+.tile:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
 footer {
     padding: 1rem;
     text-align: center;
@@ -309,6 +324,10 @@ footer {
     
     .step-image {
         aspect-ratio: 4/3;
+    }
+    
+    .hero {
+        margin-top: 50px;
     }
 }
 
